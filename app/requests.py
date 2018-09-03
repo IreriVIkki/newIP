@@ -30,4 +30,16 @@ def configure_requests(app):
 def get_trending(sort):
     # format the api url adding the sort parameters and the api key
     url = api_link.format(sort, news_api_key)
-    pass
+    with urllib.request.urlopen(url) as response:
+        data = response.read()
+        data = json.loads(data)
+
+        # create an empty articles object that will hold the article json file
+        articles = None
+
+        # an if condition to check if the request returned any data at all
+        if data['articles']:
+            articles_json = data['articles']
+            articles = process_articles(articles_json)
+
+    return articles

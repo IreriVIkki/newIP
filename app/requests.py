@@ -97,9 +97,30 @@ def get_sources():
         # print(len(sources))
     return sources
 
+
+# defining a function for processing dettails about various news outlets
+def process_sources(sources_list):
+    # loop thorough all the sources in the list and process each one of them
+    for source in sources_list:
+        id = source.get('id')
+        name = source.get('name')
+        description = source.get('description')
+        url = source.get('url')
+        category = source.get('category')
+        language = source.get('language')
+        country = source.get('country')
+
+        # initialize an epty variable to hold the list of sources outlets
+        sources = []
+
+        if language == 'en':
+            new_source = Sources(id, name, description, url,
+                                 category, language, country)
+            sources.append(new_source)
+    return sources
+
+
 # creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters. This function will be reused whenever i want to format a list of article json objects
-
-
 def process_articles(articles_list):
     # loop throught the list and map all the relevant information to the articles class
     for article in articles_list:

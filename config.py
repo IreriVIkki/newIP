@@ -17,3 +17,20 @@ class Config:
 
 
 # creating a production configuration childclass with general configurations settings
+# parent class is passed in to the childs parameters to cofirm inheritance
+class ProdConfig(Config):
+    pass
+
+
+# Config child class that declares all the development configuration settings
+# also takes in parent Config class as its argument
+class DevConfig(Config):
+    # in here i set debuging to true to allow for debugging features and also for the project to auto reload as I work on it
+    DEBUG = True
+
+
+# create a dictionary property that will be used to set configurations settings later in application
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig
+}

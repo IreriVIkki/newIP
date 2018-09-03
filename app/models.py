@@ -16,3 +16,15 @@ class Articles:
         self.publishedAt = publishedAt
 
 # class for shapping sources data
+
+
+class Sources:
+
+    def __init__(self, ids, name, description, url, category, language, country):
+        self.id = ids
+        self.name = name
+        self.description = description
+        self.url = url
+        self.category = category
+        self.language = language
+        self.country = country

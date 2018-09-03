@@ -64,7 +64,27 @@ def get_categories(category):
     return articles
 
 
+# defining a function for getting news from one particular source
+def get_source_articles(source):
+    url = api_onesource.format(source, news_api_key)
+
+    with urllib.request.urlopen(url) as response:
+        data = response.read()
+        data = json.loads(data)
+
+        # empty artilces list to hold the final list of articles
+        articles = None
+
+        # check that the articles list is not empty
+        if data['articles']:
+            articles_jsonlist = data['articles']
+            articles = process_articles(articles_jsonlist)
+
+    return articles
+
 # creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters. This function will be reused whenever i want to format a list of article json objects
+
+
 def process_articles(articles_list):
     # loop throught the list and map all the relevant information to the articles class
     for article in articles_list:

@@ -7,7 +7,7 @@ import os
 class Config:
 
     # declaring Config properties that include api urls to be used
-    api_link = 'https://newsapi.org/v2/top-headlines?q={}&country={}&sortBy={}&apiKey={}'
+    api_link = 'https://newsapi.org/v2/top-headlines?country=us&sortBy={}&apiKey={}'
     api_category = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey={}'
     api_sources = 'https://newsapi.org/v2/sources?sortBy=popularity&apiKey={}'
     api_onesource = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'

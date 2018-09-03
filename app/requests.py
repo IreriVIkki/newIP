@@ -26,7 +26,6 @@ def configure_requests(app):
 
 
 # defining a function for getting the trending news from the us that will be displayed first in the home page
-
 def get_trending(sort):
     # format the api url adding the sort parameters and the api key
     url = api_link.format(sort, news_api_key)
@@ -81,6 +80,22 @@ def get_source_articles(source):
             articles = process_articles(articles_jsonlist)
 
     return articles
+
+
+# defining a function for getting sources data
+def get_sources():
+    # formatting url for getting details about news providers
+    url = api_sources.format(news_api_key)
+
+    with urllib.request.urlopen(url) as res:
+        data = res.read()
+        data = json.loads(data)
+
+        sources = None
+        if data['sources']:
+            sources = process_sources(data['sources'])
+        # print(len(sources))
+    return sources
 
 # creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters. This function will be reused whenever i want to format a list of article json objects
 

@@ -43,3 +43,29 @@ def get_trending(sort):
             articles = process_articles(articles_json)
 
     return articles
+
+
+# creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters
+def process_articles(articles_list):
+    # loop throught the list and map all the relevant information to the articles class
+    for article in articles_list:
+        source = article.get('source')
+        id = article.get('id')
+        author = article.get('author')
+        title = article.get('title')
+        description = article.get('description')
+        url = article.get('url')
+        urlToImage = article.get('urlToImage')
+        publishedAt = article.get('publishedAt')
+
+        # declare an emplty list onto which the new articles objects will me appended
+        articles_items = []
+
+        # check if the article has a picture before adding it to the list of articles
+        if urlToImage:
+            new_article = Articles(
+                id, source, author, title, description, url, urlToImage, publishedAt)
+            articles_items.append(new_article)
+
+    # return the final list of formatted articles
+    return articles_items

@@ -45,7 +45,26 @@ def get_trending(sort):
     return articles
 
 
-# creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters
+# creating a function for getting list of articles by categories
+def get_categories(category):
+    # format url for calling categories api
+    url = api_category.format(category, news_api_key)
+
+    with urllib.request.urlopen(url) as response:
+        data = response.read()
+        data = json.loads(data)
+
+        # empty list that will hold the final processed lost
+        articles = None
+
+        # check if response contains a list of articles
+        if data['articles']:
+            articles_list = data['articles']
+            articles = process_articles(articles_list)
+    return articles
+
+
+# creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters. This function will be reused whenever i want to format a list of article json objects
 def process_articles(articles_list):
     # loop throught the list and map all the relevant information to the articles class
     for article in articles_list:

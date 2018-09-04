@@ -13,6 +13,10 @@
     border-bottom: #2f2f2f dashed 1px;
 }
 
+ul {
+    margin-bottom: 0;
+}
+
 .sec-img-div {
     height: 200px;
     overflow: hidden;

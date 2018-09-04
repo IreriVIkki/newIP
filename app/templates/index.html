@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+{% include 'navbar.html' %}
+{% include 'slider.html' %}
+{% include 'sources.html' %}
+
+
+{% for news in articles %}
+<div class="five">
+    {% for article in news %}
+    <div class="i{{loop.index}} my-2">
+        <div class="sec-3 w-auto p-3">
+            <h2 class="article-author mb-0">
+                <em>By: {{article.author}} i{{loop.index}}</em>
+            </h2>
+            <div class="d-flex align-items-center py-1">
+                <a href="">
+                    <h3 class="article-source my-0">{{article.source['name']}}</h3>
+                </a>
+                <div class="dot ml-3 mr-2 d-flex align-self-center"></div>
+                <p class="article-time my-0">{{article.publishedAt}}s</p>
+            </div>
+            <div class="sec-img-div d-flex align-items-center">
+                <a href="/">
+                    <img class="sec-img" src="{{article.urlToImage}}" alt="">
+                </a>
+            </div>
+            <div>
+                <h2 class="article-title my-2">
+                    <a href="/">{{article.title}}
+                    </a>
+                    <div class="underline">
+                    </div>
+            </div>
+            <div>
+                <p class="article-description pl-2 my-2">{{article.description | truncate(300) }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
+{% endblock header%}

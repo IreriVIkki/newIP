@@ -17,10 +17,12 @@ def index():
     return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)
 
 
+# defining a route that will get the news fron a selected category
 @main.route('/<cat>')
 def category(cat):
     # this will be used as category title in the html
-    category_title = cat.upper()
+    news_title = cat.upper()
     # call get categories function which returns articles from the selected category only
+    # since these articles will be displayed on the same html as popular news. i name then exactly the same so that they can just overide popular news
     articles = get_categories(cat)
-    return render_template('index.html', articles=articles, category_title=category_title)
+    return render_template('index.html', articles=articles, news_title=news_title)

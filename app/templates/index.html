@@ -18,9 +18,11 @@
             </h2>
             {% endif %}
             <div class="d-flex align-items-center py-1">
+                {% if article.name%}
                 <a href="/sources/{{article.id}}">
-                    <h3 class="article-source my-0">{{article.id}}</h3>
+                    <h3 class="article-source my-0">{{article.name}}</h3>
                 </a>
+                {% endif %}
                 <div class="dot ml-3 mr-2 d-flex align-self-center"></div>
                 <p class="article-time my-0">{{article.publishedAt}}s</p>
             </div>

@@ -60,6 +60,7 @@ def sources(sources):
     # first check if a source actually exists
     # call a function that returns details about that specific news source
     source = get_source_details(sources)
+    print(source)
     # call function that returns articles from a gicen source
     source_articles = get_source_articles(sources)
     articles = sub_arrays(source_articles, 9)

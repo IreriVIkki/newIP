@@ -2,13 +2,16 @@
 from flask import render_template
 # import the blueprint application from this very same folder
 from . import main
-# import articles and sources classes for creating their respective objects
-from ..models import Articles, Sources
+# import request module that has all the functions for calling apis and processing the responses
+from ..requests import get_categories, get_source_articles, get_trending, get_sources
+
 
 # defining the homepage route
-
-
 @main.route('/')
 def index():
-    #
-    pass
+    # call the function that returns trending news
+    title = 'wwn.con'
+    news_title = 'Trending News'
+    articles = get_trending('popularity')
+    sources = get_sources()
+    return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)

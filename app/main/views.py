@@ -35,4 +35,4 @@ def sources(source):
     if source:
         # call function that returnarticles from a gicen source
         source_articles = get_source_articles(source)
-        return render_template('source.html', articles=source_articles)
+        return render_template('sources.html', articles=source_articles)

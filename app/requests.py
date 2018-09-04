@@ -98,6 +98,16 @@ def get_sources():
     return sources
 
 
+# defining a function that will go through the list of sources and return only the source details that are required
+def get_source_details(source):
+    # call the get_sources function to get a list of all sources
+    sources = get_sources()
+    # loop through all the sources and get the match and return it
+    for source in sources:
+        if source.id == source:
+            return source
+
+
 # defining a function for processing dettails about various news outlets
 def process_sources(sources_list):
     # loop thorough all the sources in the list and process each one of them

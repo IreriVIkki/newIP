@@ -1,4 +1,0 @@
-export MOVIE_API_KEY=f66746a23882d3e392a5894c6a5c97d5
-export SECRET_KEY=whatthefuckkey
-
-python3.6 manage.py server

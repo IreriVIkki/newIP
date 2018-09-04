@@ -38,3 +38,20 @@ def sources(source):
         # call function that returns articles from a gicen source
         source_articles = get_source_articles(source)
         return render_template('sources.html', articles=source_articles)
+
+
+# define a function that formats the data recieved into lists tah caan be looped through in components giving a dopeass design in the process
+def sub_arrays(array, num):
+    start = 0
+    articles = []
+    while start < len(array):
+        start2 = start
+        arr2 = []
+        for i in range(num):
+            arr2.append(array[start2+i])
+            if (start2+i) == (len(array)-1):
+                break
+        # print(articles)
+        articles.append(arr2)
+        start += num
+    return articles

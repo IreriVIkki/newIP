@@ -15,3 +15,12 @@ def index():
     articles = get_trending('popularity')
     sources = get_sources()
     return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)
+
+
+@main.route('/<cat>')
+def category(cat):
+    # this will be used as category title in the html
+    category_title = cat.upper()
+    # call get categories function which returns articles from the selected category only
+    articles = get_categories(cat)
+    return render_template('index.html', articles=articles, category_title=category_title)

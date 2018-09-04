@@ -50,17 +50,17 @@ def category(cat):
     # call get categories function which returns articles from the selected category only
     # since these articles will be displayed on the same html as popular news. i name then exactly the same so that they can just overide popular news
     articles = get_categories(cat)
+    articles = sub_arrays(articles, 9)
     return render_template('index.html', articles=articles, news_title=news_title)
 
 
 # defining a route that will get news from various sources when a source is clicked on
-@main.route('/sources/<source>')
-def sources(source):
+@main.route('/sources/<sources>')
+def sources(sources):
     # first check if a source actually exists
-    if source:
-        # call a function that returns details about that specific news source
-        source = get_source_details(source)
-        # call function that returns articles from a gicen source
-        source_articles = get_source_articles(source)
-        articles = sub_arrays(source_articles, 9)
-        return render_template('sources.html', articles=articles, source=source)
+    # call a function that returns details about that specific news source
+    source = get_source_details(sources)
+    # call function that returns articles from a gicen source
+    source_articles = get_source_articles(sources)
+    articles = sub_arrays(source_articles, 9)
+    return render_template('sources.html', articles=articles, source=source)

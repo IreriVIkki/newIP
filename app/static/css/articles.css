@@ -99,15 +99,16 @@
 .five {
     /* height: 40px; */
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         'i2 i8 i3'
         'i1 i1 i4'
         'i6 i7 i5'
-        'i9 i9 i5';
+        'i9 i9 i9';
     grid-column-gap: 15px;
     margin: 30px;
+    margin-top: 10px;
 }
 
 .i1 {
@@ -131,6 +132,22 @@
 
 .i5 {
     grid-area: i5;
+}
+
+.i6 {
+    grid-area: i6;
+}
+
+.i7 {
+    grid-area: i7;
+}
+
+.i8 {
+    grid-area: i8;
+}
+
+.i9 {
+    grid-area: i9;
 }
 
 .label {

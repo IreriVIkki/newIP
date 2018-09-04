@@ -6,7 +6,7 @@
 {% include 'slider.html' %}
 {% include 'source.html' %}
 
-<h1>{{news_title}}</h1>
+<h1 class="p-4">{{news_title}}</h1>
 {% for news in articles %}
 <div class="five">
     {% for article in news %}
@@ -19,19 +19,19 @@
             {% endif %}
             <div class="d-flex align-items-center py-1">
                 <a href="/sources/{{article.id}}">
-                    <h3 class="article-source my-0">{{article.source}}</h3>
+                    <h3 class="article-source my-0">{{article.id}}</h3>
                 </a>
                 <div class="dot ml-3 mr-2 d-flex align-self-center"></div>
                 <p class="article-time my-0">{{article.publishedAt}}s</p>
             </div>
             <div class="sec-img-div d-flex align-items-center">
-                <a href="article.url">
+                <a href="{{article.url}}">
                     <img class="sec-img" src="{{article.urlToImage}}" alt="">
                 </a>
             </div>
             <div>
                 <h2 class="article-title my-2">
-                    <a href="/">{{article.title}}
+                    <a href="{{article.url}}">{{article.title}}
                     </a>
                     <div class="underline">
                     </div>

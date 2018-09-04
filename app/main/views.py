@@ -3,7 +3,7 @@ from flask import render_template
 # import the blueprint application from this very same folder
 from . import main
 # import request module that has all the functions for calling apis and processing the responses
-from ..requests import get_categories, get_source_articles, get_trending, get_sources
+from ..requests import get_categories, get_source_articles, get_trending, get_sources, get_source_details
 
 
 # defining the homepage route
@@ -33,6 +33,8 @@ def category(cat):
 def sources(source):
     # first check if a source actually exists
     if source:
-        # call function that returnarticles from a gicen source
+        # call a function that returns details about that specific news source
+        source = get_source_details(source)
+        # call function that returns articles from a gicen source
         source_articles = get_source_articles(source)
         return render_template('sources.html', articles=source_articles)

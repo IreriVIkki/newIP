@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<div class="news mx-5 my-2">
+    <p class="label">
+        {% for source in sources %}
+        <a class="px-4" href="/sources/{{source.id}}">
+            <em>{{source.name}}</em>
+        </a>
+        {% endfor %}
+    </p>
+</div>
+{% endblock header%}

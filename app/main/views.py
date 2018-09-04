@@ -11,6 +11,9 @@ from ..requests import get_categories, get_source_articles, get_trending, get_so
 def index():
     # call the function that returns trending news
     title = 'wwn.con'
+
+# INCLUDE THE FORMATTING FUNCTION OVER HERE
+
     news_title = 'Trending News'
     articles = get_trending('popularity')
     sources = get_sources()

@@ -20,27 +20,21 @@ Angular framework has been used in the development of this project and the langu
 
 ## Project Description
 
-This is a web-app built for providing quotes to the user.
+This is a web-app that gets news from an api and organises then neatly for the user to read as they want.
 
--   Users can also **add** and **delete** quotes - this feature will much effective once a login system has been established but for now it just shows a basic exaple of how the project works.
+-   Users can view news by **category**, **author** and popularity
 
--   Users also get to see how long ago a quote was posted
+-   Users can view news from one specific **publisher**
 
--   users can also **upvote** and **downvote** quotes that they like or don't like.
+-   Users can see details about one specific publisher
 
--   A quote of the day is showed up top. The quote that makes it to the quote of the day is that which has the most upvotes
+-   Users can see how long ago the given article was posted
 
--   On the left side is a column of quotes on pictures. \*\*Future plans include making the images auto scroll upwards
-
--   Users should click on the **add new** quote to get rid of any input before adding a new quote.
-
--   The **refresh** button updates all the quotes after user adds a new one and also updates quote of the day to the current one.
-
-    ## Set up instructions
+-   Users can see the **author** the specific article
 
 ## Set up instructions
 
-to start reading adding and deleting quotes, simply click on this [link](https://irerivikki.github.io/core-ip-1-diary/ "BestLifeQuotes.com") to visit the website.
+to start reading all the latest news ay you please, simply click on this [link](https://mynewsip.herokuapp.com/) to visit the website.
 
 ## copyright and license
 

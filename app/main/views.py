@@ -37,7 +37,7 @@ def index():
     news_title = 'Trending News'
     articles_l = get_trending('popularity')
     sources = get_sources()
-    articles = sub_arrays(articles_l, 7)
+    articles = sub_arrays(articles_l, 9)
     print(articles)
     return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)
 

@@ -5,8 +5,28 @@ from . import main
 # import request module that has all the functions for calling apis and processing the responses
 from ..requests import get_categories, get_source_articles, get_trending, get_sources, get_source_details
 
+# define a function that formats the data recieved into lists tah caan be looped through in components giving a dopeass design in the process
+
+
+def sub_arrays(array, num):
+    start = 0
+    articles = []
+    while start < len(array):
+        start2 = start
+        arr2 = []
+        for i in range(num):
+            arr2.append(array[start2+i])
+            if (start2+i) == (len(array)-1):
+                break
+        # print(articles)
+        articles.append(arr2)
+        start += num
+    return articles
+
 
 # defining the homepage route
+
+
 @main.route('/')
 def index():
     # call the function that returns trending news
@@ -15,8 +35,10 @@ def index():
 # INCLUDE THE FORMATTING FUNCTION OVER HERE
 
     news_title = 'Trending News'
-    articles = get_trending('popularity')
+    articles_l = get_trending('popularity')
     sources = get_sources()
+    articles = sub_arrays(articles_l, 7)
+    print(articles)
     return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)
 
 
@@ -41,20 +63,3 @@ def sources(source):
         # call function that returns articles from a gicen source
         source_articles = get_source_articles(source)
         return render_template('sources.html', articles=source_articles)
-
-
-# define a function that formats the data recieved into lists tah caan be looped through in components giving a dopeass design in the process
-def sub_arrays(array, num):
-    start = 0
-    articles = []
-    while start < len(array):
-        start2 = start
-        arr2 = []
-        for i in range(num):
-            arr2.append(array[start2+i])
-            if (start2+i) == (len(array)-1):
-                break
-        # print(articles)
-        articles.append(arr2)
-        start += num
-    return articles

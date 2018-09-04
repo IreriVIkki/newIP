@@ -7,13 +7,13 @@ import os
 class Config:
 
     # declaring Config properties that include api urls to be used
-    api_link = 'https://newsapi.org/v2/top-headlines?country=us&sortBy={}&apiKey={}'
-    api_category = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey={}'
-    api_sources = 'https://newsapi.org/v2/sources?sortBy=popularity&apiKey={}'
-    api_onesource = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'
-    trending_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
+    API_LINK = 'https://newsapi.org/v2/top-headlines?country=us&sortBy={}&apiKey={}'
+    API_CATEGORY = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey={}'
+    API_SOURCES = 'https://newsapi.org/v2/sources?sortBy=popularity&apiKey={}'
+    API_ONESOURCE = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'
+    TRENDING_URL = 'https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
     # using os to get the api key from the instance config file
-    news_api_key = os.environ.get('API_KEY')
+    NEWS_API_KEY = os.environ.get('API_KEY')
 
 
 # creating a production configuration childclass with general configurations settings

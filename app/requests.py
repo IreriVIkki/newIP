@@ -16,13 +16,13 @@ news_api_key = None
 
 
 def configure_requests(app):
-    global api_category, api_link, api_onesource, api_sources, trending_url, news_api_key
-    api_onesource = app.config['api_onesource']
-    api_category = app.config['api_category']
-    api_link = app.config['api_link']
-    api_sources = app.api_category['api_sources']
-    trending_url = app.config['trending_url']
-    news_api_key = app.config['news_api_key']
+    global api_category, news_api_key, api_link, api_onesource, api_sources, trending_url
+    api_onesource = app.config['API_ONESOURCE']
+    api_category = app.config['API_CATEGORY']
+    api_link = app.config['API_LINK']
+    api_sources = app.config['API_SOURCES']
+    trending_url = app.config['TRENDING_URL']
+    news_api_key = app.config['NEWS_API_KEY']
 
 
 # defining a function for getting the trending news from the us that will be displayed first in the home page
@@ -40,6 +40,7 @@ def get_trending(sort):
         if data['articles']:
             articles_json = data['articles']
             articles = process_articles(articles_json)
+        # print(data)
 
     return articles
 
@@ -111,6 +112,7 @@ def get_source_details(source):
 # defining a function for processing dettails about various news outlets
 def process_sources(sources_list):
     # loop thorough all the sources in the list and process each one of them
+    sources = []
     for source in sources_list:
         id = source.get('id')
         name = source.get('name')
@@ -121,7 +123,6 @@ def process_sources(sources_list):
         country = source.get('country')
 
         # initialize an epty variable to hold the list of sources outlets
-        sources = []
 
         if language == 'en':
             new_source = Sources(id, name, description, url,
@@ -131,8 +132,10 @@ def process_sources(sources_list):
 
 
 # creating a function that takes in an articles list json file and formats it to a list of article object formated using the articles class. this function will take a list of articles json files as its parameters. This function will be reused whenever i want to format a list of article json objects
+
 def process_articles(articles_list):
     # loop throught the list and map all the relevant information to the articles class
+    articles_items = []
     for article in articles_list:
         source = article.get('source')
         id = article.get('id')
@@ -144,13 +147,11 @@ def process_articles(articles_list):
         publishedAt = article.get('publishedAt')
 
         # declare an emplty list onto which the new articles objects will me appended
-        articles_items = []
 
         # check if the article has a picture before adding it to the list of articles
         if urlToImage:
             new_article = Articles(
                 id, source, author, title, description, url, urlToImage, publishedAt)
             articles_items.append(new_article)
-
     # return the final list of formatted articles
     return articles_items

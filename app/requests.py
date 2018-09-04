@@ -137,8 +137,9 @@ def process_articles(articles_list):
     # loop throught the list and map all the relevant information to the articles class
     articles_items = []
     for article in articles_list:
-        source = article.get('source')
-        id = article.get('id')
+        sou = article.get('source')
+        source = sou.get('name')
+        id = sou.get('id')
         author = article.get('author')
         title = article.get('title')
         description = article.get('description')

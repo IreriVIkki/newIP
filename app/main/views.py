@@ -38,7 +38,7 @@ def index():
     articles_l = get_trending('popularity')
     sources = get_sources()
     articles = sub_arrays(articles_l, 9)
-    print(articles)
+    # print(articles)
     return render_template('index.html', articles=articles, news_title=news_title, title=title, sources=sources)
 
 
@@ -62,4 +62,4 @@ def sources(source):
         source = get_source_details(source)
         # call function that returns articles from a gicen source
         source_articles = get_source_articles(source)
-        return render_template('sources.html', articles=source_articles)
+        return render_template('sources.html', articles=source_articles, source=source)

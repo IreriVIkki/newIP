@@ -87,6 +87,7 @@ def get_source_articles(source):
 def get_sources():
     # formatting url for getting details about news providers
     url = api_sources.format(news_api_key)
+    print(url)
 
     with urllib.request.urlopen(url) as res:
         data = res.read()
@@ -95,7 +96,6 @@ def get_sources():
         sources = None
         if data['sources']:
             sources = process_sources(data['sources'])
-        # print(len(sources))
     return sources
 
 

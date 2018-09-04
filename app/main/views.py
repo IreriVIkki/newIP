@@ -62,4 +62,5 @@ def sources(source):
         source = get_source_details(source)
         # call function that returns articles from a gicen source
         source_articles = get_source_articles(source)
-        return render_template('sources.html', articles=source_articles, source=source)
+        articles = sub_arrays(source_articles, 9)
+        return render_template('sources.html', articles=articles, source=source)

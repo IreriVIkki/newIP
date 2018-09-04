@@ -6,6 +6,17 @@
 {% include 'slider.html' %}
 {% include 'source.html' %}
 
+<a href="{{source.url}}">
+    <h1>{{source.name}}</h1>
+</a>
+<p class="article-author">{{source.description}}</p>
+<p class="d-flex flex-column">
+    <span> <em>{{source.language}}</em> </span>
+    <span> <em>{{source.country}}</em> </span>
+</p>
+
+
+
 <h1>{{news_title}}</h1>
 {% for news in articles %}
 <div class="five">
